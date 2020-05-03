@@ -1,0 +1,9 @@
+server:
+  port: 9000
+
+dubbo:
+  application:
+    name: login-controller
+  registry:
+    address: zookeeper://192.168.21.128:2181
+  scan: org.polele.controller

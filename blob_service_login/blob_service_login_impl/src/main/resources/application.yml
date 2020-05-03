@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: mybatis
+
+dubbo:
+  # 服务提供者名字
+  application:
+    name: login-service
+  # 注册中心
+  registry:
+    address: zookeeper://192.168.21.128:2181
+  # 使用的协议
+  protocol:
+    name: dubbo
+    port: 20880
+  # 扫描服务提供包的service注解
+  scan: org.polele.service.login
