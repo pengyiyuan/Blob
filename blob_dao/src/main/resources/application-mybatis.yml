@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://192.168.0.22:3306/blob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://192.168.0.2:3306/blob?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: pyy
     password: pyy123
     driver-class-name: com.mysql.jdbc.Driver

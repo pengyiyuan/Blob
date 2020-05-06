@@ -3,6 +3,7 @@ package org.polele;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.polele.dao.user.UserMapper;
 import org.polele.pojo.user.User;
 
 import java.io.InputStream;
@@ -33,6 +34,10 @@ public class Test {
          * getUser是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
         String statement = "org.polele.dao.user.UserMapper.findAll";//映射sql的标识字符串
+        //这里不再调用SqlSession 的api，而是获得了接口对象，调用接口中的方法。
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        //List<User> list = mapper.getUserByName("tom");
+
         //执行查询返回一个唯一user对象的sql
         User user = session.selectOne(statement, 1);
         System.out.println(user);

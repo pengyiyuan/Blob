@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description:
  * @create: 2020-05-03 10:17
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.polele")
 @MapperScan(basePackages = {"org.polele.dao"})
 @DubboComponentScan(basePackages = {"org.polele.service.login"})
 public class LoginApplication {

@@ -1,6 +1,7 @@
 package org.polele.service.login;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import org.polele.cache.RedisCache;
 import org.polele.dao.user.UserMapper;
 import org.polele.pojo.user.User;
 import org.polele.service.LoginService;
@@ -21,8 +22,12 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private RedisCache redisCache;
+
     @Override
     public void insertUser(User user) {
+        redisCache.setStr("name","eee");
         userMapper.insertOne(user);
     }
 
@@ -30,4 +35,5 @@ public class LoginServiceImpl implements LoginService {
     public List<User> findAllUser() {
         return userMapper.findAll();
     }
+
 }
