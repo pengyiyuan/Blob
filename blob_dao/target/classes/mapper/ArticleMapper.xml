@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.polele.dao.article.ArticleMapper">
+    <resultMap id="articleMap" type="Article">
+        <id property="articleId" column="articleId" jdbcType="BIGINT"></id>
+        <result property="title" column="title" jdbcType="VARCHAR"></result>
+        <result property="content" column="content" jdbcType="BLOB"></result>
+        <result property="category" column="category" jdbcType="VARCHAR"></result>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"></result>
+    </resultMap>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="articleMap">
+        select * from article where articleId = #{articleId};
+    </select>
+</mapper>

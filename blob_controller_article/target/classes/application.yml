@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: redis
+
+server:
+  port: 9001
+
+dubbo:
+  application:
+    name: article-controller
+    qosEnable: false
+  registry:
+    address: zookeeper://192.168.0.100:2181
+  scan: org.polele.controller
+  protocol:
+    port: 20891
