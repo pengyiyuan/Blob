@@ -1,10 +1,9 @@
 package org.polele.pojo.user;
 
-import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
-import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-
+import java.beans.Transient;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author: PengYiYuan
@@ -13,11 +12,17 @@ import java.util.Date;
  */
 public class User implements Serializable {
 
+    private Long serialVersionUID = 1L;
+
     private Long userId;
     private String userName;
     private String password;
-    private Long registerTimeStamp;
-    private Long lastLoginTimeStamp;
+    private Long registerTimeStamp; // 注册时间
+    private Long lastLoginTimeStamp; // 上次登录时间
+
+    // TODO 下面两个字段不入库
+    private boolean isLogin;// 是否已经登录
+    private Map<String, String> tokenMap = new HashMap<>();// 用户用于单点登录sso服务器生成的标识，用来检验是否能登录其他子业务模块，这个不需要入库
 
     public Long getUserId() {
         return userId;
@@ -57,5 +62,21 @@ public class User implements Serializable {
 
     public void setLastLoginTimeStamp(Long lastLoginTimeStamp) {
         this.lastLoginTimeStamp = lastLoginTimeStamp;
+    }
+
+    public boolean isLogin() {
+        return isLogin;
+    }
+
+    public void setLogin(boolean login) {
+        isLogin = login;
+    }
+
+    public Map<String, String> getTokenMap() {
+        return tokenMap;
+    }
+
+    public void setTokenMap(Map<String, String> tokenMap) {
+        this.tokenMap = tokenMap;
     }
 }

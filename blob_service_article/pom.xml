@@ -10,11 +10,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>blob_service_article</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>blob_service_article_impl</module>
+        <module>blob_service_article_interface</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <!-- 项目包 pojo common-->
+        <dependency>
+            <groupId>org.polele</groupId>
+            <artifactId>blob_pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.polele</groupId>
+            <artifactId>blob_common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

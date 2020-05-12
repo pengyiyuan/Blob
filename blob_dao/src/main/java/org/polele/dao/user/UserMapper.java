@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface UserMapper {
 
-
     void insertOne(User user);
 
     List<User> findAll();
+
+    User findByName(String name);
 }

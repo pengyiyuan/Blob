@@ -1,9 +1,16 @@
+spring:
+  profiles:
+    active: redis
+
 server:
   port: 9000
 
 dubbo:
   application:
     name: login-controller
+    qosEnable: false
   registry:
-    address: zookeeper://192.168.21.128:2181
+    address: zookeeper://192.168.0.100:2181
   scan: org.polele.controller
+  protocol:
+    port: 20250
